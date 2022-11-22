@@ -1,0 +1,40 @@
+<nav class="paginator">
+    <ul class="paginator-step-list">
+        <li class="paginator-step">
+            <button
+            [disabled]="currentPage === 1"
+            (click)="goToPage(currentPage - 1)"
+            class="arrow-btn">
+                <img src="/assets/images/icons/icon-arrow.svg" alt="arrow">
+            </button>
+        </li>
+        <li *ngIf="currentPage > 4" class="paginator-step">
+            <a class="paginator-link" (click)="goToPage(1)">
+              1
+            </a>
+          </li>
+          <li *ngIf="currentPage > 4" class="paginator-step">...</li>
+        <li *ngFor="let page of pages" class="paginator-step">
+            <a
+            (click)="goToPage(page)"
+            class="paginator-link"
+            [ngClass]="{active: currentPage === page}">
+            {{page}}
+        </a>
+        </li>
+        <li *ngIf="currentPage < total -3" class="paginator-step">...</li>
+        <li *ngIf="currentPage < total -3" class="paginator-step">
+            <a class="paginator-link" (click)="goToPage(total)">
+                {{total}}
+            </a>
+        </li>
+        <li class="paginator-step">
+            <button
+             [disabled]="currentPage===total"
+             (click)="goToPage(currentPage + 1)"
+             class="arrow-btn arrow-btn-right">
+                <img src="/assets/images/icons/icon-arrow.svg" alt="arrow">
+            </button>
+        </li>
+    </ul>
+</nav>

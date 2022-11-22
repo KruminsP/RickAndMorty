@@ -1,0 +1,33 @@
+@import "variables";
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.loader-dot {
+    border-radius: 50%;
+    border: 0.3rem solid rgba($color-medium-purple, 0.3);
+    margin: 0.5rem;
+
+    &:nth-child(1) {
+        animation: loaderDotAnimation 0.6s ease-in-out alternate infinite;
+    }
+
+    &:nth-child(2) {
+        animation: loaderDotAnimation 0.6s ease-in-out 0.2s alternate infinite;
+    }
+
+    &:nth-child(3) {
+        animation: loaderDotAnimation 0.6s ease-in-out 0.4s alternate infinite;
+    }
+}
+
+@keyframes loaderDotAnimation {
+    100% {
+        transform: scale(1.8);
+        border-color: rgba($color-medium-purple, 0.6);
+    }
+}

@@ -1,0 +1,67 @@
+@import "variables";
+
+.character-section {
+    min-height: 100vh;
+    background-color: $color-dark-gunmetal;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.title {
+    font-size: 3.2rem;
+    text-align: center;
+    color: $color-diamond;
+    font-family: 'Creepster', cursive;
+}
+
+.character-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    grid-column-gap: 3rem;
+    grid-row-gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.character-card {
+    background-color: $color-american-blue;
+    color: $color-diamond;
+    min-height: 25rem;
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+    border: 0.2rem solid $color-jordy-blue;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 3rem 0.5rem $color-american-blue,
+        0 0 5rem 1.5rem $color-royal-purple,
+        0 0 7rem 3rem $color-diamond;
+    }
+}
+
+.name {
+    padding: 0 1rem;
+    text-align: center;
+
+}
+
+.image-container {
+    border-bottom: 0.2rem solid $color-jordy-blue;
+    background-image: url("/assets/images/placeholder.svg");
+    background-repeat: no-repeat;
+    background-size: 12rem;
+    background-position: center;
+    padding-top: 100%;  // same as height/width * 100%
+    position:relative;
+}
+
+.image {
+    position: absolute;
+    top:0;
+}

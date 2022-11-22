@@ -1,0 +1,20 @@
+@import "variables";
+
+.header {
+    padding:2rem;
+    background-color: $color-american-blue;
+    display: flex;
+    align-items: center;
+}
+
+.header-link {
+    font-size: 2rem;
+    color: $color-diamond;
+    text-decoration: none;
+    border-bottom: 0.1rem solid transparent;
+
+
+    &.active {
+        border-bottom: 0.1rem solid $color-diamond;
+    }
+}
