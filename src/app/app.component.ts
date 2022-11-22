@@ -6,24 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'angular-boilerplate';
-  page = 1;
-  items = [...Array(180).keys()].map((item) => `item ${item + 1}`);
-  itemsToDisplay: string[] = [];
-  perPage = 10;
-  total = Math.ceil(this.items.length / this.perPage);
-
+  user = {
+    name: 'Peteris',
+    age: 100,
+  };
   ngOnInit(): void {
-    this.itemsToDisplay = this.paginate(this.page, this.perPage);
-  }
+    window.localStorage.setItem('cat', 'is hungry'); // local storage key - value
+    window.localStorage.setItem('user', JSON.stringify(this.user));
 
-  goToPage(page: number): void {
-    this.page = page;
-    this.itemsToDisplay = this.paginate(this.page, this.perPage);
-  }
+    const catInfo = window.localStorage.getItem('cat');
+    const userInfo = window.localStorage.getItem('user') || '';
 
-  paginate(page: number, perPage: number): string[] {
-    return [...this.items.slice((page - 1) * perPage).slice(0, perPage)];
-  }
-  //loading = false;
+    // console.log(catInfo);
+    // console.log(JSON.parse(userInfo));
+
+    window.sessionStorage.setItem('john', 'deere');
+
+    // const john = window.sessionStorage.getItem('john');
+
+    // console.log(john);
+
+    window.localStorage.removeItem('john');
+
+    document.cookie = 'username=admin'; // cookie key - value
+  } //21 32
 }
